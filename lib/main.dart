@@ -106,12 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
     platform.invokeMethod("FromClientToHost", resultMap);
   }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,9 +118,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               "Flutter module activity",
-              style: TextStyle(color: Colors.blue, fontSize: 20,fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 100,),
+            SizedBox(
+              height: 100,
+            ),
             Container(
                 padding: EdgeInsets.all(10),
                 child: Row(
@@ -178,6 +177,18 @@ class _MyHomePageState extends State<MyHomePage> {
               "Result : $_result",
               style: TextStyle(fontSize: 20, color: Colors.blue),
             ),
+            RaisedButton(
+              onPressed: () {
+                _sendResultsToAndroidiOS();
+              },
+              textColor: Colors.white,
+              padding: const EdgeInsets.all(0.0),
+              child: Container(
+                  decoration: BoxDecoration(color: Colors.blue),
+                  padding: const EdgeInsets.all(10.0),
+                  child: const Text('Send Results to Android/iOS module',
+                      style: TextStyle(fontSize: 16))),
+            )
           ],
         ),
       ),
